@@ -102,6 +102,23 @@ namespace C_Sharp_PC_Extruder
 			Serialization("default.dat");
 			Thread_Modbus.Abort();                                                      // заставляет прервать поток обработки модбас
 		}
+
+        private void timer_for_Displ_Tick(object sender, EventArgs e)
+        {
+			toolStripStatusLabel7.Text = Convert.ToString(modBus_var.mb_mass[8]);       // тестовый счётчик в потоке модбаса в плате. в строке состояния.
+
+			A0.Text = Convert.ToString(modBus_var.mb_mass[13]);                         // GPIOA.0		Isens - вход с токового датчика
+			A4.Text = Convert.ToString(modBus_var.mb_mass[14]);                         // GPIOA.4		Uzpt - вход, напряжение звена постоянного тока
+			A5.Text = Convert.ToString(modBus_var.mb_mass[15]);                         // GPIOA.5		Un 	- выходное напряжение. обратная связь
+			A6.Text = Convert.ToString(modBus_var.mb_mass[16]);                         // GPIOA.6		Ibreak - ток отсечки. защитная функция.
+
+
+			label_milisec.Text = Convert.ToString(modBus_var.mb_mass[20]);                         //
+			label_second.Text = Convert.ToString(modBus_var.mb_mass[21]);                         //
+			label_minut.Text = Convert.ToString(modBus_var.mb_mass[22]);                         //
+			label_hour.Text = Convert.ToString(modBus_var.mb_mass[23]);                         //
+
+		}
     }
 
 
